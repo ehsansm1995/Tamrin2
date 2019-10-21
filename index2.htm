@@ -1,0 +1,93 @@
+﻿<html>
+    <head>
+        <script>
+            var rnd;
+            function randomNumber(max,min){
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
+            }
+            function beetwin(rnd,min,max){
+            return (rnd>=min) && (rnd<=max);
+            }
+            function insRow()
+            {
+            for(var i=1;i<=20;i++){
+                x=document.getElementById("tbl").insertRow(-1);
+                var y=x.insertCell(0);
+                var z=x.insertCell(1);
+                var c=x.insertCell(2);
+                var b=x.insertCell(3);
+                rnd=randomNumber(1,1000);
+                var rnd2=randomNumber(1,100);
+                y.innerHTML=i;
+                z.innerHTML=rnd;
+                var num=0;
+                switch(true){
+                case beetwin(rnd,1,125):
+                num=1;
+                break;
+                case beetwin(rnd,126,250):
+                num=2;
+                break;
+                case beetwin(rnd,251,375):
+                num=3;
+                break;
+                case beetwin(rnd,376,500):
+                num=4;
+                break;
+                case beetwin(rnd,501,625):
+                num=5;
+                break;
+                case beetwin(rnd,626,750):
+                num=6;
+                break;
+                case beetwin(rnd,751,875):
+                num=7;
+                break;
+                case beetwin(rnd,876,1000):
+                num=8;
+                break;
+            }
+            c.innerHTML=num;
+            var k=0;
+            switch(true){
+                case beetwin(rnd2,1,10):
+                k=1;
+                break;
+                case beetwin(rnd2,11,30):
+                k=2;
+                break;
+                case beetwin(rnd2,31,60):
+                k=3;
+                break;
+                case beetwin(rnd2,61,85):
+                k=4;
+                break;
+                case beetwin(rnd2,86,95):
+                k=5;
+                break;
+                case beetwin(rnd2,96,100):
+                k=6;
+                break;
+            }
+            b.innerHTML=k;
+            if(i==1){
+                var a=document.getElementById("tbl").rows[1].cells;
+                a[3].innerHTML="-";
+                a[2].innerHTML="-";
+                a[1].innerHTML="-";
+                }
+            }
+            }
+            </script>
+    </head>
+<body onload="insRow()">
+    <table  style="direction: rtl;" id="tbl" border="1">
+        <tr>
+            <th>مشتری</th>
+            <th>ارقام تصادفی</th>
+            <th>مدت بین دو ورود</th>
+            <th>مدت خدمت دهی</th>
+        </tr>
+        </table> 
+</body>
+</html>
